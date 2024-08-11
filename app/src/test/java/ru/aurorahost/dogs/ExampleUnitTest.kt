@@ -1,4 +1,4 @@
-package ru.irinavb.dogs
+package ru.aurorahost.dogs
 
 import org.junit.Test
 
