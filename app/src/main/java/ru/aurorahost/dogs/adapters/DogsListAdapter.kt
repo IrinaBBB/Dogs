@@ -1,4 +1,4 @@
-package ru.aurorahost.dogs.view
+package ru.aurorahost.dogs.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.aurorahost.dogs.R
 import ru.aurorahost.dogs.databinding.ItemDogBinding
 import ru.aurorahost.dogs.model.DogBreed
+import ru.aurorahost.dogs.view.ListFragmentDirections
 
 class DogsListAdapter(private val dogsList: ArrayList<DogBreed>) :
     RecyclerView.Adapter<DogsListAdapter.DogViewHolder>() {

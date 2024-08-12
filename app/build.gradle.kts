@@ -67,4 +67,27 @@ dependencies {
     // Lifecycle components (optional, for other lifecycle-related components)
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
     implementation("androidx.lifecycle:lifecycle-common-java8:2.8.4")
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+
+    // Retrofit with Gson converter
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // OkHttp (optional but recommended for network logging)
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+
+    // Retrofit RxJava Adapter
+    implementation("com.squareup.retrofit2:adapter-rxjava3:2.9.0")
+
+    // Gson Converter
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // RxJava3
+    implementation("io.reactivex.rxjava3:rxjava:3.0.0")
+    implementation("io.reactivex.rxjava3:rxandroid:3.0.0")
 }

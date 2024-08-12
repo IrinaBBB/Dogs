@@ -1,14 +1,13 @@
 package ru.aurorahost.dogs.view
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import ru.aurorahost.dogs.adapters.DogsListAdapter
 import ru.aurorahost.dogs.databinding.FragmentListBinding
 import ru.aurorahost.dogs.viewmodel.ListViewModel
 
@@ -37,7 +36,16 @@ class ListFragment : Fragment() {
             adapter = dogsAdapter
         }
 
-        // Observe the LiveData from the ViewModel
+        viewModel.refresh()
+
+        binding.refreshLayout.setOnRefreshListener {
+            binding.rvDogsList.visibility = View.GONE
+            binding.tvError.visibility = View.GONE
+            binding.progressBar.visibility = View.VISIBLE
+            viewModel.refresh()
+            binding.refreshLayout.isRefreshing = false
+        }
+
         viewModel.dogs.observe(viewLifecycleOwner) { dogs ->
             dogs?.let {
                 dogsAdapter.updateDogsList(ArrayList(it))
@@ -51,17 +59,9 @@ class ListFragment : Fragment() {
         }
 
         viewModel.loading.observe(viewLifecycleOwner) { isLoading ->
-            isLoading?.let {
-                binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
-                if (it) {
-                    binding.tvError.visibility = View.GONE
-                    binding.rvDogsList.visibility = View.GONE
-                }
-            }
+            binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+            binding.rvDogsList.visibility = if (isLoading) View.GONE else View.VISIBLE
         }
-
-        // Fetch dogs (or any other action you need to trigger)
-        viewModel.refresh()
     }
 
     override fun onDestroyView() {
