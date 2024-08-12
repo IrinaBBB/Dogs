@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.aurorahost.dogs.R
 import ru.aurorahost.dogs.databinding.ItemDogBinding
 import ru.aurorahost.dogs.model.DogBreed
+import ru.aurorahost.dogs.util.getProgressDrawable
+import ru.aurorahost.dogs.util.loadImage
 import ru.aurorahost.dogs.view.ListFragmentDirections
 
 class DogsListAdapter(private val dogsList: ArrayList<DogBreed>) :
@@ -55,12 +57,12 @@ class DogsListAdapter(private val dogsList: ArrayList<DogBreed>) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(dog: DogBreed) {
-            binding.dogImageView.setImageResource(R.drawable.dog)
             binding.dogBreedTextView.text = dog.dogBreed
             binding.dogLifespanTextView.text = dog.lifeSpan
             binding.mcvDogItem.setOnClickListener {
                 Navigation.findNavController(it).navigate(ListFragmentDirections.actionListFragmentToDetailFragment())
             }
+            binding.dogImageView.loadImage(dog.imageUrl, getProgressDrawable(binding.dogImageView.context))
         }
     }
 }

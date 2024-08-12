@@ -90,4 +90,7 @@ dependencies {
     // RxJava3
     implementation("io.reactivex.rxjava3:rxjava:3.0.0")
     implementation("io.reactivex.rxjava3:rxandroid:3.0.0")
+
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }
