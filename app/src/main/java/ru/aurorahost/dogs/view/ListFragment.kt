@@ -27,10 +27,7 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.fabFragmentList.setOnClickListener {
-            val action = ListFragmentDirections.actionListFragmentToDetailFragment(dogUuid = 1)
-            Navigation.findNavController(it).navigate(action)
-        }
+
     }
 
     override fun onDestroyView() {

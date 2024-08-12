@@ -3,30 +3,64 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.DetailFragment">
+        android:backgroundTint="#efefef"
+        android:background="@android:color/white"
+        android:padding="26dp">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="331dp"
-            android:layout_marginEnd="168dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabFragmentDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="24dp"
-            android:clickable="true"
-            android:src="@drawable/ic_list"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="#fff"
+            android:elevation="26dp"
+            android:padding="26dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Dog Image -->
+            <ImageView
+                android:id="@+id/dogDetailImageView"
+                android:layout_width="0dp"
+                android:layout_height="250dp"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="@string/dog_image"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@id/dogBreedTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/dog" />
+
+
+            <!-- Dog Breed -->
+            <TextView
+                android:id="@+id/dogBreedTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dogDetailImageView"
+                tools:text="Golden Retriever" />
+
+            <!-- Dog Lifespan -->
+            <TextView
+                android:id="@+id/dogLifespanTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dogBreedTextView"
+                tools:text="12-14 years" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>
