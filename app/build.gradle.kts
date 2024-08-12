@@ -57,4 +57,14 @@ dependencies {
 
     // Swipe Refresh Layout
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4")
+
+    // LiveData (optional but often used with ViewModel)
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.4")
+
+    // Lifecycle components (optional, for other lifecycle-related components)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
+    implementation("androidx.lifecycle:lifecycle-common-java8:2.8.4")
 }

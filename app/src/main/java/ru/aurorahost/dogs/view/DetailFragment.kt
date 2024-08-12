@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import ru.aurorahost.dogs.databinding.FragmentDetailBinding
+import ru.aurorahost.dogs.viewmodel.DetailViewModel
 
 class DetailFragment : Fragment() {
 
@@ -13,6 +15,7 @@ class DetailFragment : Fragment() {
     private val binding get() = _binding!!
 
     private var dogUuid = 1
+    private val viewModel: DetailViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,11 +28,18 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         arguments?.let {
             dogUuid = DetailFragmentArgs.fromBundle(it).dogUuid
-            binding.textView.text = dogUuid.toString()
         }
+
+        viewModel.dog.observe(viewLifecycleOwner) { dog ->
+            dog?.let {
+                binding.dogBreedTextView.text = dog.dogBreed
+                binding.dogLifespanTextView.text = dog.lifeSpan
+            }
+        }
+
+        viewModel.loadDog()
     }
 
     override fun onDestroyView() {

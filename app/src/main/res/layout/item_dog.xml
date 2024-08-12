@@ -3,62 +3,75 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcvDogItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@android:color/white">
 
-        <!-- ImageView inside a circular CardView -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/dogImageCard"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="40dp"
-            app:cardElevation="4dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/dogImageView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/dog_image"
-                android:scaleType="centerCrop"
-                android:src="@drawable/dog" />
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- TextView for Dog Breed -->
-        <TextView
-            android:id="@+id/dogBreedTextView"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/dogLifespanTextView"
-            app:layout_constraintStart_toEndOf="@+id/dogImageCard"
-            app:layout_constraintTop_toTopOf="@+id/dogImageCard"
-            tools:text="Golden Retriever" />
+            android:padding="16dp">
 
-        <!-- TextView for Dog Lifespan -->
-        <TextView
-            android:id="@+id/dogLifespanTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/dogImageCard"
-            app:layout_constraintEnd_toEndOf="@+id/dogBreedTextView"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/dogBreedTextView"
-            app:layout_constraintTop_toBottomOf="@+id/dogBreedTextView"
-            tools:text="12-14 years" />
+            <!-- ImageView inside a circular CardView -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/dogImageCard"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                app:cardCornerRadius="40dp"
+                app:cardElevation="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/dogImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/dog_image"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/dog" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- TextView for Dog Breed -->
+            <TextView
+                android:id="@+id/dogBreedTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/dogLifespanTextView"
+                app:layout_constraintStart_toEndOf="@+id/dogImageCard"
+                app:layout_constraintTop_toTopOf="@+id/dogImageCard"
+                tools:text="Golden Retriever" />
+
+            <!-- TextView for Dog Lifespan -->
+            <TextView
+                android:id="@+id/dogLifespanTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/dogImageCard"
+                app:layout_constraintEnd_toEndOf="@+id/dogBreedTextView"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/dogBreedTextView"
+                app:layout_constraintTop_toBottomOf="@+id/dogBreedTextView"
+                tools:text="12-14 years" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </layout>
