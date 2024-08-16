@@ -42,7 +42,7 @@ class ListFragment : Fragment() {
             binding.rvDogsList.visibility = View.GONE
             binding.tvError.visibility = View.GONE
             binding.progressBar.visibility = View.VISIBLE
-            viewModel.refresh()
+            viewModel.refreshBypassCache()
             binding.refreshLayout.isRefreshing = false
         }
 

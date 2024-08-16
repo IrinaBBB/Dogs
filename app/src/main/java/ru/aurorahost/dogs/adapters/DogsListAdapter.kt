@@ -2,6 +2,7 @@ package ru.aurorahost.dogs.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.os.persistableBundleOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -60,7 +61,8 @@ class DogsListAdapter(private val dogsList: ArrayList<DogBreed>) :
             binding.dogBreedTextView.text = dog.dogBreed
             binding.dogLifespanTextView.text = dog.lifeSpan
             binding.mcvDogItem.setOnClickListener {
-                Navigation.findNavController(it).navigate(ListFragmentDirections.actionListFragmentToDetailFragment())
+                val action = ListFragmentDirections.actionListFragmentToDetailFragment(dogUuid = dog.uuid)
+                Navigation.findNavController(it).navigate(action)
             }
             binding.dogImageView.loadImage(dog.imageUrl, getProgressDrawable(binding.dogImageView.context))
         }

@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import ru.aurorahost.dogs.databinding.FragmentDetailBinding
+import ru.aurorahost.dogs.util.getProgressDrawable
+import ru.aurorahost.dogs.util.loadImage
 import ru.aurorahost.dogs.viewmodel.DetailViewModel
 
 class DetailFragment : Fragment() {
@@ -36,10 +38,13 @@ class DetailFragment : Fragment() {
             dog?.let {
                 binding.dogBreedTextView.text = dog.dogBreed
                 binding.dogLifespanTextView.text = dog.lifeSpan
+                context?.let {
+                    binding.dogDetailImageView.loadImage(dog.imageUrl, getProgressDrawable(it))
+                }
             }
         }
 
-        viewModel.loadDog()
+        viewModel.loadDog(dogUuid)
     }
 
     override fun onDestroyView() {
